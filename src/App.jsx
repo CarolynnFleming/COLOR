@@ -2,7 +2,7 @@ import {
   Link,
   Redirect,
   BrowserRouter as Router,
-  Route, useParams
+  Route, useParams,Switch
 } from 'react-router-dom';
 
 import styles from './App.css';
@@ -10,7 +10,7 @@ import styles from './App.css';
 
 function RGB() {
   // 🚨 Get values for r, g, and b from params
-const { rgb } = userParams();
+const { r, g, b } = useParams();
   // 🚨 Uncomment next lines after importing
   return (
   <div
@@ -23,10 +23,17 @@ const { rgb } = userParams();
 }
 
 function ScreenColor() {
-  return <div>{/* Create Route Inside Switch */<Switch>
-    <Route path="/">
-      <RGB />
+  return <div>{/* Create Route Inside Switch */
+  <Switch>
+    <Route path="/rgb/:r/:g/:b">
+  <RGB />
       </Route>
+      {/* <Route path="">
+
+      </Route>
+      <Route path="/rgb/147/112/219">
+
+      </Route> */}
       </Switch>}</div>;
 }
 
